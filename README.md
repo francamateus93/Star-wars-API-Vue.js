@@ -1,100 +1,110 @@
 # 🌟 Star Wars API
 
-En este repositorio utilizarás _Vue Router_ para construir una SPA con rutas separadas.
-¡Que la fuerza te acompañe!
+Welcome to the **Star Wars Movie API** project! This project aims to provide an interactive interface that uses data from movies in the famous Star Wars series. Using the API, the application loads detailed information about each movie, offering a rich experience for fans of the galactic saga. May the force be with you!
 
-## Objetivos
+## Project goals
 
-- Usar Vue Router para separar partes lógicas y darles una estructura de rutas.
-- Utilizar los componentes `<RouterView>` y `<RouterLink>` para utilizar el router.
-- Usar el router programáticamente
-- Generar páginas con rutas y sub-rutas
-- Utilizar el _lifecycle hook_ `mounted`.
-- Utilizar `watchers` para cargar nuevos datos en una misma vista.
-- Utilizar _URL params_ y _query params_.
-- Utilizar _axios_ como alternativa a _fetch_.
-- Utilizar `Promise.all()` para trabajar con listas de promesas.
+This project was developed with a focus on the following objectives:
 
-## Configuración
+- **Use Vue Router**: Separate logical parts of the application and provide route structure for navigation between different components.
+- **Use the `<RouterView>` and `<RouterLink>` components**: Implement Vue Router efficiently to render components dynamically.
+- **Use the router programmatically**: Manage navigation in response to user events.
+- **Generate pages with routes and sub-routes**: Structure the application in different pages and sub-pages, facilitating navigation.
+- **Use the `mounted` lifecycle hook**: Load data from the API as soon as the components are assembled in the interface.
+- **Use `watchers`**: Regroup API calls and update the interface automatically when new data is available.
+- **Use URL params and query params**: Implement routes that capture URL parameters, allowing dynamic views of information according to user choices.
+- **Use Axios as an alternative to Fetch**: The Axios library is used to make requests to the API, providing more efficient handling of promises.
 
-- Ejecuta `npm install` para instalar los paquetes (packages).
-- Ejecuta `npm run dev` para ejecutar el servidor de desarrollo.
+  
+## Softwares and Languages
 
-## Requisitos básicos
+- **Javascript**: (https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- **Vue.js**: (https://vuejs.org/)
+- **Vue Router**: (https://router.vuejs.org/)
+- **Pínia Vue.js**: (https://pinia.vuejs.org/)
+- **Axios**: (https://axios-http.com/)
+- **Tailwind**: (https://tailwindcss.com/)
+- **HTML**: (https://developer.mozilla.org/es/docs/Web/HTML)
+- **VSCode**: (https://code.visualstudio.com/)
 
-### 0. Estudia la estructura de archivos
+## Getting Started
 
-- Fíjate en `router.js`, donde definimos las rutas de la aplicación, y cómo cada una de ellas tiene un componente asociado. Mira cómo se cargan en el archivo `main.js`.
-- Los componentes principales (componentes "de página") van dentro de la carpeta `views`.
-- Fíjate en cómo el componente `<App />` delega qué componente se mostrará a través del componente `<RouterView />`.
+To run the project locally, follow the steps below:
 
-### 1. Crea una homepage
+1. **Clone the repository**:
 
-![1](support/1.png)
+```bash
+git clone https://github.com/yourusername/star-wars-movie-api.git
+cd star-wars-movie-api
+```
 
-- Debe mostrar una lista de películas al cargar la página `<Home />`.
- - Cargaremos los datos de [The Star Wars API](https://swapi.dev/). Pasa 10 minutos leyendo la documentación para entender cómo funcionan los distintos _endpoints_.
- - Deberás leer sobre [lifecycle hooks](https://vuejs.org/guide/essentials/lifecycle.html) para utilizar el _lifecycle hook_ `mounted` y cargar los datos cuando la página se cargue.
- - Utiliza `fetch` o [axios](https://github.com/axios/axios) para cargar los datos en el método `getFilms`. Deberás llamar `getFilms` en el método `mounted`. Los datos los cargaremos del _endpoint_ `/films/`.
- - Añade un _state_ de _loading_ para cuando los datos se están cargando.
- - Añade estilos a la página y dale el diseño que más te guste. Puedes elegir qué datos muestras para cada película.
+2. **Install the dependencies**:
 
-### 2. Crea la página de película y enlázala a la lista
+```bash
+npm install
+```
 
-- Cada película debe tener un enlace a su página.
- - Crea un nuevo componente `Film`, dentro de `views`, para mostrar la información de la película.
- - Crea una nueva ruta en el archivo `router.js`. Tienes que elegir un nombre por la ruta y asociar el componente que acabas de crear.
- - Necesitarás un _param_ en esta ruta para identificar la película que se mostrará.
- - Enlaza la ruta a la lista de películas de la _home_ mediante `<RouterLink>`.
- - El método `getId()` te permite obtener el ID de una URL. Puedes utilizarlo para generar tus links correctamente.
+3. **Run the application**:
 
-### 3. Carga la información de la película
+```bash
+npm run dev
+```
 
-![2](support/2.png)
+4. **Acess**: Open your web browser and go to `http://localhost:8080` to see the application in action.
 
-- Tienes que mostrar la información de la película en la página de la película.
- - En el componente `Film`, carga los datos de la película de la API, como has hecho en el componente `Home`. Crea los métodos, `data` y _lifecycle hooks_ que necesites.
- - Muestra los datos en la página.
- - Añade un _state_ de _loading_ para cuando los datos se están cargando.
- - Añade estilos a la página y dale el diseño que más te guste.
+5. ## Contribution
 
-### 4. Muestra la lista de personajes en la página de la película
+If you would like to contribute to this project, feel free to open issues or pull requests. All contributions are welcome!
 
-![3](support/3.png)
 
-Como, de momento, no tenemos los nombres de las películas, puedes poner sólo el enlace, como si fuera el nombre.
+## Project Requirements
 
-### 5. Crea la sub-página de personaje
+### 0. Study the file structure
 
-![4](support/4.png)
+- Notice the `router.js`, where we define the application routes, and how each of them has an associated component. See how they are loaded in the `main.js` file.
+- The main components ("page" components) go inside the `views` folder.
+- Notice how the `<App />` component delegates which component to display through the `<RouterView />` component.
 
-- Crea una nueva [nested route](https://router.vuejs.org/guide/essentials/nested-routes.html) en el archivo `router.js` como sub-ruta de "film" para mostrar un personaje.
- - Define los parámetros que necesites en esta nueva ruta para representar el ID del personaje.
- - Crea un nuevo componente `<Character />` que muestre la información del personaje, extraída de la API.
- - Enlaza cada uno de los nombres de personaje con la nueva sub-ruta, mediante `<RouterLink />`.
- - Para que se muestre la sub-ruta dentro de la ruta principal, deberás utilizar el componente `<RouterView />` dentro del componente `<Film />`.
- - Llegado a este punto, si seleccionas a un personaje, y después seleccionas a otro, la información no se actualizará. Tendrás que leer sobre [watchers](https://vuejs.org/guide/essentials/watchers.html) para recargar los datos necesarios cuando queramos mostrar un personaje distinto.
+### 1. Create a homepage
 
-### 6. Sustituye la lista de URLs por los nombres de los personajes
+- It should display a list of movies when the `<Home />` page loads.
+- We will load the data from [The Star Wars API](https://swapi.dev/). Spend 10 minutes reading the documentation to understand how the different _endpoints_ work.
+- You'll need to read about [lifecycle hooks](https://vuejs.org/guide/essentials/lifecycle.html) to use the `mounted` lifecycle hook and load the data when the page loads.
+- Use `fetch` or [axios](https://github.com/axios/axios) to load the data in the `getFilms` method. You'll need to call `getFilms` in the `mounted` method. We'll load the data from the `/films/` endpoint.
+- Add a loading state for when the data is loading.
+- Add styles to the page and design it however you like. You can choose which data to display for each movie.
 
-![5](support/5.png)
+### 2. Create the movie page and link it to the list
 
-- Puedes cargar los datos de cada personaje de la API, simultáneamente, con [Promise.all()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all ). Lee el artículo para entender cómo lanzar varias `Promise` de repente y esperar a que todas se resuelvan.
-- Crea un nuevo _state_ `characters` en el componente `<Film />`.
-- La función donde cargas los datos principales de la película, deberá cargar, **después**, los datos de cada personaje, y guardarlos en el nuevo _state_ que has creado.
-- Pista: puedes utilizar una combinación de `Promise.all()`, `map` y `axios` para cargar esta información.
-- Sustituye las URLs por los nombres de cada personaje en tu template.
+- Each movie should have a link to its page.
+- Create a new `Film` component, inside `views`, to display the movie information.
+- Create a new route in the `router.js` file. You need to choose a name for the route and associate the component you just created.
+- You will need a _param_ in this route to identify the movie to be displayed.
+- Link the route to the list of movies in the _home_ using `<RouterLink>`.
+- The `getId()` method allows you to get the ID from a URL. You can use it to generate your links correctly.
 
-### 7. OPCIONAL. Mejora todo lo que puedas de la app.
+### 3. Load the movie information
 
-- Dale un estilo visual mejorado.
-- Añade más secciones a la página de la película.
-- Añade otras páginas (planetas, vehículos...) y enlacelas a la página de la película o entre ellas.
-- Añade una página de personajes.
-- Añade un buscador de personajes.
-- Optimiza tu código reutilizando componentes y hazlo más compacto.
+- You need to display the movie information on the movie page.
+- In the `Film` component, load the movie data from the API, as you did in the `Home` component. Create the methods, `data` and _lifecycle hooks_ that you need.
+- Display the data on the page.
+- Add a _loading_ _state_ for when the data is loading.
+- Add styles to the page and give it the design you like.
 
-## Recursos
+### 4. Display the list of characters on the movie page
+
+Since we don't have the movie names yet, you can just put the link, as if it were the name.
+
+### 5. Create the character sub-page
+
+- Create a new [nested route](https://router.vuejs.org/guide/essentials/nested-routes.html) in the `router.js` file as a sub-route of "film" to display a character.
+- Define the parameters you need in this new route to represent the character ID.
+- Create a new `<Character />` component to display the character information, pulled from the API.
+- Link each of the character names to the new sub-route, using `<RouterLink />`.
+- To display the sub-route inside the main route, you will need to use the `<RouterView />` component inside the `<Film />` component.
+- At this point, if you select a character, and then select another, the information will not be updated. You will have to read about [watchers](https://vuejs.org/guide/essentials/watchers.html) to reload the necessary data when we want to display a different character.
+
+## Resources
 
 - [Vue Router](https://router.vuejs.org/introduction.html)
 - [Vue Documentation](https://vuejs.org/guide/introduction.html)
@@ -102,8 +112,7 @@ Como, de momento, no tenemos los nombres de las películas, puedes poner sólo e
 - [Vue watchers](https://vuejs.org/guide/essentials/watchers.html)
 - [Axios](https://github.com/axios/axios)
 - [The Star Wars API](https://swapi.dev/)
-- [Promise.all()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)
 
-## Notas
+## Notes
 
-_Este es un proyecto de estudiante creado en [CodeOp](http://CodeOp.tech), en el bootcamp de Front End Development en Barcelona._
+_This is a student project created at [CodeOp](http://CodeOp.tech), at the Front End Development bootcamp in Barcelona.
