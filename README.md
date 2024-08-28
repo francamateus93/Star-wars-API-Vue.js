@@ -1,4 +1,4 @@
-# Vue Router - Star Wars API
+# 🌟 Star Wars API
 
 En este repositorio utilizarás _Vue Router_ para construir una SPA con rutas separadas.
 ¡Que la fuerza te acompañe!
