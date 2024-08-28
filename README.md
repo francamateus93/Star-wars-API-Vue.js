@@ -2,9 +2,7 @@
 
 ## About project
 
-Welcome to the **Star Wars Movie API** project! This project aims to provide an interactive interface that uses data from movies in the famous Star Wars series. 
-
-Using the API, the application loads detailed information about each movie, offering a rich experience for fans of the galactic saga. 
+Welcome to the **Star Wars Movie API** project! This project aims to provide an interactive interface that uses data from movies in the famous Star Wars series. Using the API, the application loads detailed information about each movie, offering a rich experience for fans of the galactic saga. 
 
 May the force be with you!
 
